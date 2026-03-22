@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Disaster Alerts</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; }
+    input, button { width: 100%; padding: 10px; margin: 6px 0; }
+    a { display: inline-block; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="form">
+    <input required name="email" type="email" placeholder="Email" />
+    <input required name="password" type="password" placeholder="Password" />
+    <button>Login</button>
+  </form>
+  <div id="out"></div>
+  <a href="signup.html">Create account</a>
+  <script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      document.getElementById("out").textContent = JSON.stringify(json, null, 2);
+      if (json.ok) {
+        localStorage.setItem("userEmail", data.email);
+        window.location.href = "dashboard.html";
+      }
+    });
+  </script>
+</body>
+</html>
