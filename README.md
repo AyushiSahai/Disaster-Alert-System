@@ -2,75 +2,74 @@
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-Framework-000000?logo=express)
+![Express.js](https://img.shields.io/badge/Express.js-Framework-black?logo=express)
 ![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-EB6E4B)
 
 A cloud-based weather monitoring application that combines user authentication, AWS cloud services, and real-time weather analysis to notify approved users when severe weather conditions are detected.
 
 ---
 
-## 🎯 Why I Built This
+## 🎯 Project Overview
 
-I wanted to build a project that combined backend development with cloud services in a practical scenario rather than using each technology in isolation.
+This project demonstrates how multiple AWS services can work together in a practical web application.
 
-This project helped me understand how different AWS services work together in a complete application—from storing user information to sending automated notifications based on live weather data.
+Users register through the application, wait for administrator approval, and can then check weather conditions for a city. When predefined weather thresholds are exceeded, the application automatically publishes an alert through Amazon SNS, delivering an email notification to subscribed users.
 
 ---
 
-## ✨ What It Does
+## ⭐ Key Features
 
-- 👤 User registration and login
-- 🔒 Password hashing using bcrypt
-- ✅ Administrator approval workflow
-- 🌦️ Real-time weather monitoring
-- 📊 Automatic weather threshold evaluation
-- 📧 Email alerts using Amazon SNS
-- 🗄️ User management with Amazon DynamoDB
-- 📦 Automatic backup of signup data to Amazon S3
+- User registration and login
+- Password hashing using bcrypt
+- Administrator approval workflow
+- Weather monitoring using OpenWeatherMap API
+- Weather threshold evaluation
+- Email notifications through Amazon SNS
+- User information stored in Amazon DynamoDB
+- Signup data archived in Amazon S3
 
 ---
 
 ## 🔄 Application Workflow
 
 ```text
-User Registration
-        │
-        ▼
+User
+   │
+   ▼
+Signup
+   │
+   ▼
 Store User → Amazon DynamoDB
-        │
-        ▼
+   │
+   ▼
 Archive Signup → Amazon S3
-        │
-        ▼
+   │
+   ▼
 Administrator Approval
-        │
-        ▼
-User Login
-        │
-        ▼
+   │
+   ▼
+Login
+   │
+   ▼
 Enter City
-        │
-        ▼
-Fetch Weather → OpenWeatherMap API
-        │
-        ▼
+   │
+   ▼
+OpenWeatherMap API
+   │
+   ▼
 Evaluate Weather Conditions
-        │
-        ▼
-Rain ≥ 10 mm OR Wind > 20 km/h ?
-        │
-      Yes
-        │
-        ▼
-Publish Notification → Amazon SNS
-        │
-        ▼
-Email Alert
+(Rain ≥10 mm OR Wind >20 km/h)
+   │
+   ▼
+Amazon SNS
+   │
+   ▼
+Email Notification
 ```
 
 ---
 
-## 🏗️ System Architecture
+## 🏗 System Architecture
 
 ```mermaid
 flowchart TD
@@ -87,7 +86,7 @@ C --> E[Amazon S3]
 
 C --> F[OpenWeatherMap API]
 
-F --> G[Weather Evaluation]
+F --> G[Weather Threshold Evaluation]
 
 G --> H{Alert Required?}
 
@@ -98,7 +97,7 @@ I --> J[Email Notification]
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 ### Frontend
 
@@ -111,7 +110,7 @@ I --> J[Email Notification]
 - Node.js
 - Express.js
 
-### AWS Services
+### Cloud Services
 
 - Amazon DynamoDB
 - Amazon S3
@@ -132,23 +131,24 @@ I --> J[Email Notification]
 
 ---
 
-## ☁️ AWS Services Used
-
-| Service | Purpose |
-|----------|---------|
-| Amazon DynamoDB | Stores user information and approval status |
-| Amazon S3 | Stores ZIP archives of signup data |
-| Amazon SNS | Sends email notifications when alert conditions are met |
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
 .
 ├── public/
+│   ├── index.html
+│   ├── signup.html
+│   ├── login.html
+│   ├── dashboard.html
+│
 ├── routes/
+│   ├── auth.js
+│   ├── admin.js
+│   └── alerts.js
+│
 ├── util/
+│   └── zip.js
+│
 ├── aws.js
 ├── server.js
 ├── package.json
@@ -158,21 +158,60 @@ I --> J[Email Notification]
 
 ---
 
+# 📸 Project Walkthrough
+
+## 1️⃣ Application Interface
+
+The web application provides user registration, login, and a dashboard for weather monitoring.
+
+![Application Interface](images/application-overview.png)
+
+---
+
+## 2️⃣ Backend Project Structure
+
+The backend follows a modular Express.js structure with separate routes for authentication, administrator approval, and weather alerts.
+
+![Backend Structure](images/backend-structure.png)
+
+---
+
+## 3️⃣ Weather Alert Email
+
+When rainfall or wind speed exceeds the configured threshold, Amazon SNS automatically publishes an email notification.
+
+> Example shown below.
+
+![Weather Alert Email](images/email-alert.png)
+
+---
+
+## ☁ AWS Services Used
+
+| Service | Purpose |
+|----------|---------|
+| Amazon DynamoDB | Stores user information and approval status |
+| Amazon S3 | Stores ZIP archives of signup records |
+| Amazon SNS | Sends email notifications |
+| OpenWeatherMap API | Provides live weather information |
+
+---
+
 ## 🚀 Getting Started
 
-### Clone the repository
+### Clone
 
 ```bash
-git clone https://github.com/yourusername/weather-disaster-alert-system.git
+git clone https://github.com/YOUR_USERNAME/weather-disaster-alert-system.git
 ```
 
-### Install dependencies
+### Install
 
 ```bash
 npm install
 ```
 
-### Configure environment variables
+### Configure
 
 Rename
 
@@ -186,15 +225,15 @@ to
 .env
 ```
 
-and update the AWS and OpenWeatherMap credentials.
+and update the AWS credentials and OpenWeatherMap API key.
 
-### Run the project
+### Run
 
 ```bash
 npm start
 ```
 
-Open:
+Open
 
 ```
 http://localhost:3000
@@ -202,52 +241,28 @@ http://localhost:3000
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-
-*(Add screenshot)*
-
-### Signup
-
-*(Add screenshot)*
-
-### Login
-
-*(Add screenshot)*
-
-### Dashboard
-
-*(Add screenshot)*
-
-### Email Alert
-
-*(Add screenshot)*
-
----
-
 ## 📚 What I Learned
 
-Working on this project gave me practical experience with:
+This project helped me gain hands-on experience with:
 
-- Designing REST APIs using Express.js
-- Integrating multiple AWS services into one application
-- Using Amazon DynamoDB for NoSQL data storage
+- Building REST APIs using Express.js
+- Integrating multiple AWS services
+- Using DynamoDB for NoSQL storage
 - Uploading application data to Amazon S3
-- Publishing notifications with Amazon SNS
-- Working with third-party APIs
-- Structuring a backend application into reusable modules
+- Sending notifications through Amazon SNS
+- Working with external REST APIs
+- Organizing backend code into modular routes
 
 ---
 
 ## 🚀 Future Improvements
 
-- Support multiple cities per user
-- Allow users to configure custom alert thresholds
+- Support multiple cities
+- Allow users to customize weather thresholds
 - Display historical weather alerts
 - Add SMS notifications
-- Deploy the application on Amazon EC2
-- Containerize the application using Docker
+- Deploy on Amazon EC2
+- Containerize using Docker
 
 ---
 
@@ -258,7 +273,3 @@ Working on this project gave me practical experience with:
 B.Tech Information Technology (2026)
 
 AWS Certified Developer – Associate
-
-GitHub: https://github.com/YOUR_USERNAME
-
-LinkedIn: https://linkedin.com/in/YOUR_PROFILE
