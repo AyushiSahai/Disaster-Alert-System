@@ -1,75 +1,41 @@
+<div align="center">
+
 # 🚨 Weather Disaster Alert System
+
+A cloud-based weather monitoring application that combines **Node.js**, **Express.js**, **AWS Cloud Services**, and the **OpenWeatherMap API** to automatically notify users when severe weather conditions are detected.
+
+<p>
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-Framework-black?logo=express)
 ![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-EB6E4B)
 
-A cloud-based weather monitoring application that combines user authentication, AWS cloud services, and real-time weather analysis to notify approved users when severe weather conditions are detected.
+</p>
+
+</div>
 
 ---
 
-## 🎯 Project Overview
+# 📌 Overview
 
-This project demonstrates how multiple AWS services can work together in a practical web application.
+This project demonstrates how multiple AWS cloud services can work together in a real-world backend application.
 
-Users register through the application, wait for administrator approval, and can then check weather conditions for a city. When predefined weather thresholds are exceeded, the application automatically publishes an alert through Amazon SNS, delivering an email notification to subscribed users.
-
----
-
-## ⭐ Key Features
-
-- User registration and login
-- Password hashing using bcrypt
-- Administrator approval workflow
-- Weather monitoring using OpenWeatherMap API
-- Weather threshold evaluation
-- Email notifications through Amazon SNS
-- User information stored in Amazon DynamoDB
-- Signup data archived in Amazon S3
+The application allows users to register, receive administrator approval, log in, and request weather information for a city. Whenever rainfall or wind speed exceeds predefined thresholds, the system automatically publishes an alert using **Amazon SNS**, delivering an email notification.
 
 ---
 
-## 🔄 Application Workflow
+# ✨ Highlights
 
-```text
-User
-   │
-   ▼
-Signup
-   │
-   ▼
-Store User → Amazon DynamoDB
-   │
-   ▼
-Archive Signup → Amazon S3
-   │
-   ▼
-Administrator Approval
-   │
-   ▼
-Login
-   │
-   ▼
-Enter City
-   │
-   ▼
-OpenWeatherMap API
-   │
-   ▼
-Evaluate Weather Conditions
-(Rain ≥10 mm OR Wind >20 km/h)
-   │
-   ▼
-Amazon SNS
-   │
-   ▼
-Email Notification
-```
+| Authentication | Cloud Integration | Weather Monitoring | Notifications |
+|:--------------|:-----------------|:------------------|:--------------|
+| User Signup & Login | Amazon DynamoDB | OpenWeatherMap API | Amazon SNS |
+| Password Hashing | Amazon S3 | Threshold Evaluation | Email Alerts |
+| Admin Approval | AWS SDK v3 | Live Weather Data | Automated Workflow |
 
 ---
 
-## 🏗 System Architecture
+# 🏗️ System Architecture
 
 ```mermaid
 flowchart TD
@@ -86,9 +52,9 @@ C --> E[Amazon S3]
 
 C --> F[OpenWeatherMap API]
 
-F --> G[Weather Threshold Evaluation]
+F --> G[Evaluate Weather Conditions]
 
-G --> H{Alert Required?}
+G --> H{Rain ≥10 mm<br/>OR<br/>Wind >20 km/h}
 
 H -- Yes --> I[Amazon SNS]
 
@@ -97,41 +63,107 @@ I --> J[Email Notification]
 
 ---
 
-## 🛠 Tech Stack
+# 🔄 Application Workflow
 
-### Frontend
-
-- HTML
-- CSS
-- JavaScript
-
-### Backend
-
-- Node.js
-- Express.js
-
-### Cloud Services
-
-- Amazon DynamoDB
-- Amazon S3
-- Amazon SNS
-
-### API
-
-- OpenWeatherMap API
-
-### Libraries
-
-- Axios
-- bcrypt
-- dotenv
-- cors
-- archiver
-- AWS SDK for JavaScript (v3)
+```text
+User
+ │
+ ▼
+Signup
+ │
+ ▼
+Store User → Amazon DynamoDB
+ │
+ ▼
+Archive Signup → Amazon S3
+ │
+ ▼
+Administrator Approval
+ │
+ ▼
+Login
+ │
+ ▼
+Enter City
+ │
+ ▼
+Fetch Weather
+ │
+ ▼
+Evaluate Thresholds
+ │
+ ▼
+Amazon SNS
+ │
+ ▼
+Email Notification
+```
 
 ---
 
-## 📂 Project Structure
+# 📸 Project Showcase
+
+## Application
+
+The application provides a simple workflow for user registration, login, and weather monitoring.
+
+<p align="center">
+
+<img src="images/application-overview.png" width="850"/>
+
+</p>
+
+---
+
+## Backend Structure
+
+The project follows a modular Express.js architecture with separate routes for authentication, administration, and weather alerts.
+
+<p align="center">
+
+<img src="images/backend-structure.png" width="850"/>
+
+</p>
+
+---
+
+## Email Notification
+
+When severe weather conditions are detected, Amazon SNS automatically sends an email notification.
+
+<p align="center">
+
+<img src="images/email-alert.png" width="350"/>
+
+</p>
+
+---
+
+# ⚙️ Technology Stack
+
+| Category | Technologies |
+|:---------|:-------------|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Node.js, Express.js |
+| Database | Amazon DynamoDB |
+| Object Storage | Amazon S3 |
+| Notifications | Amazon SNS |
+| Weather API | OpenWeatherMap API |
+| Libraries | Axios, bcrypt, cors, dotenv, archiver, AWS SDK v3 |
+
+---
+
+# ☁️ AWS Services
+
+| Service | Purpose |
+|:--------|:--------|
+| Amazon DynamoDB | Stores user information and approval status |
+| Amazon S3 | Stores ZIP archives of signup data |
+| Amazon SNS | Sends weather alert email notifications |
+
+---
+
+# 📂 Project Structure
 
 ```text
 .
@@ -158,76 +190,29 @@ I --> J[Email Notification]
 
 ---
 
-# 📸 Project Walkthrough
+# 🚀 Getting Started
 
-## 1️⃣ Application Interface
-
-The web application provides user registration, login, and a dashboard for weather monitoring.
-
-![Application Interface](images/application-overview.png)
-
----
-
-## 2️⃣ Backend Project Structure
-
-The backend follows a modular Express.js structure with separate routes for authentication, administrator approval, and weather alerts.
-
-![Backend Structure](images/backend-structure.png)
-
----
-
-## 3️⃣ Weather Alert Email
-
-When rainfall or wind speed exceeds the configured threshold, Amazon SNS automatically publishes an email notification.
-
-> Example shown below.
-
-![Weather Alert Email](images/email-alert.png)
-
----
-
-## ☁ AWS Services Used
-
-| Service | Purpose |
-|----------|---------|
-| Amazon DynamoDB | Stores user information and approval status |
-| Amazon S3 | Stores ZIP archives of signup records |
-| Amazon SNS | Sends email notifications |
-| OpenWeatherMap API | Provides live weather information |
-
----
-
-## 🚀 Getting Started
-
-### Clone
+Clone the repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/weather-disaster-alert-system.git
 ```
 
-### Install
+Install dependencies
 
 ```bash
 npm install
 ```
 
-### Configure
+Create a `.env` file using `.env.example` and configure:
 
-Rename
+- AWS Credentials
+- DynamoDB Table
+- S3 Bucket
+- SNS Topic ARN
+- OpenWeatherMap API Key
 
-```
-.env.example
-```
-
-to
-
-```
-.env
-```
-
-and update the AWS credentials and OpenWeatherMap API key.
-
-### Run
+Run the project
 
 ```bash
 npm start
@@ -241,35 +226,39 @@ http://localhost:3000
 
 ---
 
-## 📚 What I Learned
+# 💡 What I Learned
 
-This project helped me gain hands-on experience with:
+During this project I gained practical experience with:
 
-- Building REST APIs using Express.js
-- Integrating multiple AWS services
-- Using DynamoDB for NoSQL storage
-- Uploading application data to Amazon S3
-- Sending notifications through Amazon SNS
+- Designing REST APIs using Express.js
+- Building a modular backend architecture
+- Integrating Amazon DynamoDB, S3, and SNS into one application
 - Working with external REST APIs
-- Organizing backend code into modular routes
+- Password hashing using bcrypt
+- Handling cloud-based storage and notifications
+- Structuring backend applications using reusable route modules
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 Roadmap
 
-- Support multiple cities
-- Allow users to customize weather thresholds
-- Display historical weather alerts
-- Add SMS notifications
-- Deploy on Amazon EC2
-- Containerize using Docker
+- [ ] Support multiple cities
+- [ ] Allow custom weather thresholds
+- [ ] Store weather alert history
+- [ ] Add SMS notifications
+- [ ] Dockerize the application
+- [ ] Deploy to Amazon EC2
 
 ---
 
-## 👩‍💻 Author
+<div align="center">
+
+### 👩‍💻 Developed by
 
 **Ayushi Sahai**
 
 B.Tech Information Technology (2026)
 
 AWS Certified Developer – Associate
+
+</div>
