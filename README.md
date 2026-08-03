@@ -159,7 +159,7 @@ The backend follows a modular Express.js architecture with separate routes for a
 
 <p align="center">
 
-<img src="backend-structure.png" width="850">
+<img src="backend-structure.png" width="650">
 
 </p>
 
