@@ -31,7 +31,7 @@ A cloud-based weather monitoring application built with **Node.js**, **Express.j
 | Type | Personal Learning Project |
 | Backend | Node.js + Express.js |
 | Cloud Services | AWS DynamoDB • Amazon S3 • Amazon SNS |
-| Weather Provider | OpenWeatherMap API |
+
 
 ---
 
@@ -201,33 +201,6 @@ I --> J[Email Notification]
 | `DDB_TABLE` | DynamoDB Table |
 | `SNS_TOPIC_ARN` | Amazon SNS Topic |
 | `OPENWEATHER_KEY` | OpenWeatherMap API Key |
-
----
-
-# 📂 Project Structure
-
-```text
-.
-├── public/
-│   ├── index.html
-│   ├── signup.html
-│   ├── login.html
-│   ├── dashboard.html
-│
-├── routes/
-│   ├── auth.js
-│   ├── admin.js
-│   └── alerts.js
-│
-├── util/
-│   └── zip.js
-│
-├── aws.js
-├── server.js
-├── package.json
-├── .env.example
-└── README.md
-```
 
 ---
 
