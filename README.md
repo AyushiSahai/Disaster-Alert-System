@@ -35,20 +35,19 @@ A cloud-based weather monitoring application built with **Node.js**, **Express.j
 
 ---
 
-# 📖 Overview
+## 📖 Overview
 
-Weather Disaster Alert System is a backend-focused cloud application that combines user authentication, cloud storage, weather data retrieval, and automated notifications.
+Weather Disaster Alert System is a backend-focused web application built with Node.js, Express.js, AWS, and the OpenWeatherMap API.
 
-The application allows users to register, wait for administrator approval, log in, and request weather information for a city. When rainfall or wind speed exceeds predefined thresholds, the system automatically publishes an alert through Amazon SNS, delivering an email notification.
+The application enables approved users to check weather conditions for a selected city. It retrieves live weather data, evaluates rainfall and wind speed against predefined thresholds, and sends email notifications through Amazon SNS when alert conditions are met.
 
-The project was built to gain practical experience integrating multiple AWS services into a single backend application.
-
+User information is stored in Amazon DynamoDB, while signup data is archived in Amazon S3.
 ---
 ## 🎯 Why I Built This
 
-I built this project to gain practical experience integrating multiple AWS services into a single backend application. Instead of exploring each service independently, I wanted to combine user authentication, cloud storage, weather data retrieval, and automated notifications into one workflow.
+I built this project to gain hands-on experience developing a backend application that integrates multiple AWS services.
 
-Building this project also helped me understand how a backend application can interact with external APIs and AWS services to process data and automate actions.
+Instead of learning services like Amazon DynamoDB, Amazon S3, and Amazon SNS individually, I wanted to understand how they work together in a complete application alongside user authentication and an external weather API.
 
 ---
 ## 📝 How It Works
@@ -72,14 +71,13 @@ Building this project also helped me understand how a backend application can in
 ---
 ## 🚀 Key Features
 
-- User registration and login with password hashing
-- Administrator approval workflow
-- Weather data retrieval using the OpenWeatherMap API
-- Rainfall and wind threshold evaluation
-- Automated email notifications through Amazon SNS
+- User registration and login with secure password hashing
+- Administrator approval before user access
+- Live weather retrieval using the OpenWeatherMap API
+- Weather evaluation based on rainfall and wind speed thresholds
+- Automated email notifications using Amazon SNS
 - User information stored in Amazon DynamoDB
 - Signup data archived in Amazon S3
-
 ---
 
 # ✨ Implementation Highlights
