@@ -1,15 +1,24 @@
-<div align="center">
 
-# 🚨 Weather Disaster Alert System
+<h1 align="center">
+🚨 Weather Disaster Alert System
+</h1>
 
-A cloud-based weather monitoring application that combines **Node.js**, **Express.js**, **AWS Cloud Services**, and the **OpenWeatherMap API** to automatically notify users when severe weather conditions are detected.
+<p align="center">
 
-<p>
+Cloud-based weather monitoring application built with
+Node.js • Express.js • AWS • OpenWeatherMap API
 
-![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-Framework-black?logo=express)
-![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-EB6E4B)
+</p>
+
+<p align="center">
+
+<img src="images/application-overview.png" width="750">
+
+</p>
+
+<p align="center">
+
+badges...
 
 </p>
 
