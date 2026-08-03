@@ -127,7 +127,7 @@ The application provides a simple interface for user registration, login, and we
 
 <p align="center">
 
-<img src="images/application-overview.png" width="850">
+<img src="application-overview.png" width="850">
 
 </p>
 
@@ -139,7 +139,7 @@ The backend follows a modular Express.js architecture with separate routes for a
 
 <p align="center">
 
-<img src="images/backend-structure.png" width="850">
+<img src="backend-structure.png" width="850">
 
 </p>
 
@@ -151,7 +151,7 @@ When severe weather conditions are detected, Amazon SNS automatically publishes 
 
 <p align="center">
 
-<img src="images/email-alert.png" width="350">
+<img src="email-alert.png" width="350">
 
 </p>
 
