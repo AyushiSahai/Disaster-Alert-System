@@ -1,24 +1,19 @@
+<div align="center">
 
-<h1 align="center">
-🚨 Weather Disaster Alert System
-</h1>
+# 🚨 Weather Disaster Alert System
+
+A cloud-based weather monitoring application built with **Node.js**, **Express.js**, and **AWS** that monitors real-time weather conditions and automatically sends email alerts when severe weather thresholds are detected.
 
 <p align="center">
-
-Cloud-based weather monitoring application built with
-Node.js • Express.js • AWS • OpenWeatherMap API
-
+<img src="images/application-overview.png" width="850">
 </p>
 
-<p align="center">
+<p>
 
-<img src="images/application-overview.png" width="750">
-
-</p>
-
-<p align="center">
-
-badges...
+![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-Framework-black?logo=express)
+![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-EB6E4B)
 
 </p>
 
@@ -26,18 +21,32 @@ badges...
 
 ---
 
-# 📌 Overview
+# 📌 Project Status
 
-This project demonstrates how multiple AWS cloud services can work together in a real-world backend application.
+| | |
+|:--|:--|
+| Status | ✅ Completed |
+| Type | Personal Learning Project |
+| Backend | Node.js + Express.js |
+| Cloud Services | AWS DynamoDB • Amazon S3 • Amazon SNS |
+| Weather Provider | OpenWeatherMap API |
 
-The application allows users to register, receive administrator approval, log in, and request weather information for a city. Whenever rainfall or wind speed exceeds predefined thresholds, the system automatically publishes an alert using **Amazon SNS**, delivering an email notification.
+---
+
+# 📖 Overview
+
+Weather Disaster Alert System is a backend-focused cloud application that combines user authentication, cloud storage, weather data retrieval, and automated notifications.
+
+The application allows users to register, wait for administrator approval, log in, and request weather information for a city. When rainfall or wind speed exceeds predefined thresholds, the system automatically publishes an alert through Amazon SNS, delivering an email notification.
+
+The project was built to gain practical experience integrating multiple AWS services into a single backend application.
 
 ---
 
 # ✨ Highlights
 
-| Authentication | Cloud Integration | Weather Monitoring | Notifications |
-|:--------------|:-----------------|:------------------|:--------------|
+| Authentication | Cloud Integration | Weather Processing | Notifications |
+|:--|:--|:--|:--|
 | User Signup & Login | Amazon DynamoDB | OpenWeatherMap API | Amazon SNS |
 | Password Hashing | Amazon S3 | Threshold Evaluation | Email Alerts |
 | Admin Approval | AWS SDK v3 | Live Weather Data | Automated Workflow |
@@ -51,7 +60,7 @@ flowchart TD
 
 A[User]
 
-A --> B[Frontend<br>HTML CSS JavaScript]
+A --> B[Frontend<br>HTML • CSS • JavaScript]
 
 B --> C[Node.js + Express.js]
 
@@ -61,9 +70,9 @@ C --> E[Amazon S3]
 
 C --> F[OpenWeatherMap API]
 
-F --> G[Evaluate Weather Conditions]
+F --> G[Weather Threshold Evaluation]
 
-G --> H{Rain ≥10 mm<br/>OR<br/>Wind >20 km/h}
+G --> H{Rain ≥ 10 mm<br/>OR<br/>Wind > 20 km/h}
 
 H -- Yes --> I[Amazon SNS]
 
@@ -96,10 +105,10 @@ Login
 Enter City
  │
  ▼
-Fetch Weather
+Retrieve Weather → OpenWeatherMap API
  │
  ▼
-Evaluate Thresholds
+Evaluate Rain & Wind Thresholds
  │
  ▼
 Amazon SNS
@@ -112,37 +121,37 @@ Email Notification
 
 # 📸 Project Showcase
 
-## Application
+## User Interface
 
-The application provides a simple workflow for user registration, login, and weather monitoring.
+The application provides a simple interface for user registration, login, and weather alert requests.
 
 <p align="center">
 
-<img src="images/application-overview.png" width="850"/>
+<img src="images/application-overview.png" width="850">
 
 </p>
 
 ---
 
-## Backend Structure
+## Backend Implementation
 
-The project follows a modular Express.js architecture with separate routes for authentication, administration, and weather alerts.
+The backend follows a modular Express.js architecture with separate routes for authentication, administrator approval, and weather alerts.
 
 <p align="center">
 
-<img src="images/backend-structure.png" width="850"/>
+<img src="images/backend-structure.png" width="850">
 
 </p>
 
 ---
 
-## Email Notification
+## Alert Notification
 
-When severe weather conditions are detected, Amazon SNS automatically sends an email notification.
+When severe weather conditions are detected, Amazon SNS automatically publishes an email notification.
 
 <p align="center">
 
-<img src="images/email-alert.png" width="350"/>
+<img src="images/email-alert.png" width="350">
 
 </p>
 
@@ -151,24 +160,49 @@ When severe weather conditions are detected, Amazon SNS automatically sends an e
 # ⚙️ Technology Stack
 
 | Category | Technologies |
-|:---------|:-------------|
+|:--|:--|
 | Frontend | HTML, CSS, JavaScript |
 | Backend | Node.js, Express.js |
 | Database | Amazon DynamoDB |
 | Object Storage | Amazon S3 |
 | Notifications | Amazon SNS |
 | Weather API | OpenWeatherMap API |
-| Libraries | Axios, bcrypt, cors, dotenv, archiver, AWS SDK v3 |
+| Libraries | Axios, bcrypt, cors, dotenv, archiver, AWS SDK for JavaScript (v3) |
 
 ---
 
-# ☁️ AWS Services
+# ☁️ AWS Services Used
 
-| Service | Purpose |
-|:--------|:--------|
+| AWS Service | Purpose |
+|:--|:--|
 | Amazon DynamoDB | Stores user information and approval status |
 | Amazon S3 | Stores ZIP archives of signup data |
-| Amazon SNS | Sends weather alert email notifications |
+| Amazon SNS | Sends automated email notifications |
+
+---
+
+# 🔌 API Endpoints
+
+| Method | Endpoint | Description |
+|:--|:--|:--|
+| POST | `/api/signup` | Register a new user |
+| POST | `/api/login` | Login approved users |
+| POST | `/api/admin/approve` | Approve or reject registered users |
+| POST | `/api/weather-alert` | Retrieve weather data and evaluate alert conditions |
+
+---
+
+# ⚙️ Environment Variables
+
+| Variable | Description |
+|:--|:--|
+| `AWS_REGION` | AWS Region |
+| `AWS_ACCESS_KEY_ID` | AWS Access Key |
+| `AWS_SECRET_ACCESS_KEY` | AWS Secret Key |
+| `S3_BUCKET` | Amazon S3 Bucket |
+| `DDB_TABLE` | DynamoDB Table |
+| `SNS_TOPIC_ARN` | Amazon SNS Topic |
+| `OPENWEATHER_KEY` | OpenWeatherMap API Key |
 
 ---
 
@@ -213,12 +247,18 @@ Install dependencies
 npm install
 ```
 
-Create a `.env` file using `.env.example` and configure:
+Create an environment file
+
+```bash
+cp .env.example .env
+```
+
+Configure:
 
 - AWS Credentials
 - DynamoDB Table
-- S3 Bucket
-- SNS Topic ARN
+- Amazon S3 Bucket
+- Amazon SNS Topic
 - OpenWeatherMap API Key
 
 Run the project
@@ -227,7 +267,7 @@ Run the project
 npm start
 ```
 
-Open
+Visit
 
 ```
 http://localhost:3000
@@ -235,28 +275,35 @@ http://localhost:3000
 
 ---
 
-# 💡 What I Learned
+# 💡 Key Learning Outcomes
 
-During this project I gained practical experience with:
+Working on this project helped me gain practical experience with:
 
-- Designing REST APIs using Express.js
-- Building a modular backend architecture
-- Integrating Amazon DynamoDB, S3, and SNS into one application
-- Working with external REST APIs
+- Building REST APIs using Express.js
+- Structuring a modular backend application
+- Integrating multiple AWS services
+- Using Amazon DynamoDB for NoSQL data storage
+- Uploading application data to Amazon S3
+- Sending notifications with Amazon SNS
+- Consuming third-party REST APIs
 - Password hashing using bcrypt
-- Handling cloud-based storage and notifications
-- Structuring backend applications using reusable route modules
 
 ---
 
-# 🚀 Roadmap
+# 🚀 Future Enhancements
 
 - [ ] Support multiple cities
-- [ ] Allow custom weather thresholds
-- [ ] Store weather alert history
+- [ ] Allow users to configure weather thresholds
+- [ ] Store historical weather alerts
 - [ ] Add SMS notifications
-- [ ] Dockerize the application
-- [ ] Deploy to Amazon EC2
+- [ ] Containerize the application using Docker
+- [ ] Deploy on Amazon EC2
+
+---
+
+# 📄 License
+
+This project is available under the MIT License.
 
 ---
 
