@@ -44,8 +44,19 @@ The application allows users to register, wait for administrator approval, log i
 The project was built to gain practical experience integrating multiple AWS services into a single backend application.
 
 ---
+## 🚀 Key Features
 
-# ✨ Highlights
+- User registration and login with password hashing
+- Administrator approval workflow
+- Weather data retrieval using the OpenWeatherMap API
+- Rainfall and wind threshold evaluation
+- Automated email notifications through Amazon SNS
+- User information stored in Amazon DynamoDB
+- Signup data archived in Amazon S3
+
+---
+
+# ✨ Technical Highlights
 
 | Authentication | Cloud Integration | Weather Processing | Notifications |
 |:--|:--|:--|:--|
@@ -296,7 +307,7 @@ Working on this project helped me gain practical experience with:
 
 - [ ] Support multiple cities
 - [ ] Allow users to configure weather thresholds
-- [ ] Store historical weather alerts
+- [ ] Store weather alert history
 - [ ] Add SMS notifications
 - [ ] Containerize the application using Docker
 - [ ] Deploy on Amazon EC2
