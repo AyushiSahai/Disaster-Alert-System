@@ -4,10 +4,6 @@
 
 A cloud-based weather monitoring application built with **Node.js**, **Express.js**, and **AWS** that monitors real-time weather conditions and automatically sends email alerts when severe weather thresholds are detected.
 
-<p align="center">
-<img src="application-overview.png" width="850">
-</p>
-
 <p>
 
 ![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?logo=amazonaws&logoColor=white)
@@ -16,6 +12,12 @@ A cloud-based weather monitoring application built with **Node.js**, **Express.j
 ![OpenWeatherMap](https://img.shields.io/badge/OpenWeatherMap-API-EB6E4B)
 
 </p>
+
+<p align="center">
+<img src="application-overview.png" width="850">
+</p>
+
+
 
 </div>
 
@@ -48,7 +50,7 @@ The project was built to gain practical experience integrating multiple AWS serv
 | Authentication | Cloud Integration | Weather Processing | Notifications |
 |:--|:--|:--|:--|
 | User Signup & Login | Amazon DynamoDB | OpenWeatherMap API | Amazon SNS |
-| Password Hashing | Amazon S3 | Threshold Evaluation | Email Alerts |
+| Password Hashing | Amazon S3 | Evaluate Weather | Email Alerts |
 | Admin Approval | AWS SDK v3 | Live Weather Data | Automated Workflow |
 
 ---
