@@ -27,7 +27,7 @@ A cloud-based weather monitoring application built with **Node.js**, **Express.j
 
 | | |
 |:--|:--|
-| Status | ✅ Completed |
+| Status | Functional |
 | Type | Personal Learning Project |
 | Backend | Node.js + Express.js |
 | Cloud Services | AWS DynamoDB • Amazon S3 • Amazon SNS |
@@ -42,6 +42,13 @@ Weather Disaster Alert System is a backend-focused cloud application that combin
 The application allows users to register, wait for administrator approval, log in, and request weather information for a city. When rainfall or wind speed exceeds predefined thresholds, the system automatically publishes an alert through Amazon SNS, delivering an email notification.
 
 The project was built to gain practical experience integrating multiple AWS services into a single backend application.
+
+---
+## 🎯 Why I Built This
+
+I built this project to gain practical experience integrating multiple AWS services into a single backend application. Instead of exploring each service independently, I wanted to combine user authentication, cloud storage, weather data retrieval, and automated notifications into one workflow.
+
+Building this project also helped me understand how a backend application can interact with external APIs and AWS services to process data and automate actions.
 
 ---
 ## 🚀 Key Features
