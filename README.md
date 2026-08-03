@@ -5,7 +5,7 @@
 A cloud-based weather monitoring application built with **Node.js**, **Express.js**, and **AWS** that monitors real-time weather conditions and automatically sends email alerts when severe weather thresholds are detected.
 
 <p align="center">
-<img src="images/application-overview.png" width="850">
+<img src="application-overview.png" width="850">
 </p>
 
 <p>
