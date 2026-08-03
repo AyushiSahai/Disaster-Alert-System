@@ -51,6 +51,25 @@ I built this project to gain practical experience integrating multiple AWS servi
 Building this project also helped me understand how a backend application can interact with external APIs and AWS services to process data and automate actions.
 
 ---
+## 📝 How It Works
+
+1. **User signs up** by providing their name, email, phone number, city, and password.
+
+2. **Administrator reviews the account** and approves the user before they can access the application.
+
+3. **Approved users log in** to the application.
+
+4. **User enters a city name** to check the current weather conditions.
+
+5. **The backend retrieves weather data** from the OpenWeatherMap API.
+
+6. **The application evaluates weather conditions** against predefined rainfall and wind thresholds.
+
+7. **If a threshold is exceeded**, Amazon SNS sends an email notification to the subscribed user.
+
+8. **The user receives the weather alert** in their inbox.
+
+---
 ## 🚀 Key Features
 
 - User registration and login with password hashing
@@ -63,7 +82,7 @@ Building this project also helped me understand how a backend application can in
 
 ---
 
-# ✨ Technical Highlights
+# ✨ Implementation Highlights
 
 | Authentication | Cloud Integration | Weather Processing | Notifications |
 |:--|:--|:--|:--|
@@ -72,73 +91,6 @@ Building this project also helped me understand how a backend application can in
 | Admin Approval | AWS SDK v3 | Live Weather Data | Automated Workflow |
 
 ---
-
-# 🏗️ System Architecture
-
-```mermaid
-flowchart TD
-
-A[User]
-
-A --> B[Frontend<br>HTML • CSS • JavaScript]
-
-B --> C[Node.js + Express.js]
-
-C --> D[Amazon DynamoDB]
-
-C --> E[Amazon S3]
-
-C --> F[OpenWeatherMap API]
-
-F --> G[Weather Threshold Evaluation]
-
-G --> H{Rain ≥ 10 mm<br/>OR<br/>Wind > 20 km/h}
-
-H -- Yes --> I[Amazon SNS]
-
-I --> J[Email Notification]
-```
-
----
-
-# 🔄 Application Workflow
-
-```text
-User
- │
- ▼
-Signup
- │
- ▼
-Store User → Amazon DynamoDB
- │
- ▼
-Archive Signup → Amazon S3
- │
- ▼
-Administrator Approval
- │
- ▼
-Login
- │
- ▼
-Enter City
- │
- ▼
-Retrieve Weather → OpenWeatherMap API
- │
- ▼
-Evaluate Rain & Wind Thresholds
- │
- ▼
-Amazon SNS
- │
- ▼
-Email Notification
-```
-
----
-
 # 📸 Project Showcase
 
 ## User Interface
@@ -176,6 +128,34 @@ When severe weather conditions are detected, Amazon SNS automatically publishes 
 </p>
 
 ---
+# 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+
+A[User]
+
+A --> B[Frontend<br>HTML • CSS • JavaScript]
+
+B --> C[Node.js + Express.js]
+
+C --> D[Amazon DynamoDB]
+
+C --> E[Amazon S3]
+
+C --> F[OpenWeatherMap API]
+
+F --> G[Weather Threshold Evaluation]
+
+G --> H{Rain ≥ 10 mm<br/>OR<br/>Wind > 20 km/h}
+
+H -- Yes --> I[Amazon SNS]
+
+I --> J[Email Notification]
+```
+
+---
+
 
 # ⚙️ Technology Stack
 
