@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚨 Weather Disaster Alert System
+# 🚨 Disaster Alert System
 
 A cloud-based weather monitoring application built with **Node.js**, **Express.js**, and **AWS** that monitors real-time weather conditions and automatically sends email alerts when severe weather thresholds are detected.
 
