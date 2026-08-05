@@ -37,7 +37,7 @@ A cloud-based weather monitoring application built with **Node.js**, **Express.j
 
 ## 📖 Overview
 
-Weather Disaster Alert System is a backend-focused web application built with Node.js, Express.js, AWS, and the OpenWeatherMap API.
+Disaster Alert System is a backend-focused web application built with Node.js, Express.js, AWS, and the OpenWeatherMap API.
 
 The application enables approved users to check weather conditions for a selected city. It retrieves live weather data, evaluates rainfall and wind speed against predefined thresholds, and sends email notifications through Amazon SNS when alert conditions are met.
 
