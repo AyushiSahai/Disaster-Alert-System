@@ -43,13 +43,6 @@ The application enables approved users to check weather conditions for a selecte
 
 User information is stored in Amazon DynamoDB, while signup data is archived in Amazon S3.
 ---
-## 🎯 Why I Built This
-
-I built this project to gain hands-on experience developing a backend application that integrates multiple AWS services.
-
-Instead of learning services like Amazon DynamoDB, Amazon S3, and Amazon SNS individually, I wanted to understand how they work together in a complete application alongside user authentication and an external weather API.
-
----
 ## 📝 How It Works
 
 1. **User signs up** by providing their name, email, phone number, city, and password.
@@ -243,33 +236,13 @@ Visit
 ```
 http://localhost:3000
 ```
-
----
-
-# 💡 Key Learning Outcomes
-
-Working on this project helped me gain practical experience with:
-
-- Building REST APIs using Express.js
-- Structuring a modular backend application
-- Integrating multiple AWS services
-- Using Amazon DynamoDB for NoSQL data storage
-- Uploading application data to Amazon S3
-- Sending notifications with Amazon SNS
-- Consuming third-party REST APIs
-- Password hashing using bcrypt
-
 ---
 
 # 🚀 Future Enhancements
 
-- [ ] Support multiple cities
-- [ ] Allow users to configure weather thresholds
-- [ ] Store weather alert history
-- [ ] Add SMS notifications
-- [ ] Containerize the application using Docker
-- [ ] Deploy on Amazon EC2
-
+- Add additional disaster types
+- Improve alert customization
+- Add monitoring and analytics
 ---
 
 # 📄 License
