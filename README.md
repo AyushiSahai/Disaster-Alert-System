@@ -125,25 +125,19 @@ When severe weather conditions are detected, Amazon SNS automatically publishes 
 ```mermaid
 flowchart TD
 
-A[User]
+A["User"]
+A --> B["Frontend: HTML, CSS, JavaScript"]
+B --> C["Node.js + Express.js"]
 
-A --> B[Frontend<br>HTML • CSS • JavaScript]
+C --> D["Amazon DynamoDB"]
+C --> E["Amazon S3"]
+C --> F["OpenWeatherMap API"]
 
-B --> C[Node.js + Express.js]
+F --> G["Weather Threshold Evaluation"]
+G --> H{"Rain >= 10 mm OR Wind > 20 km/h"}
 
-C --> D[Amazon DynamoDB]
-
-C --> E[Amazon S3]
-
-C --> F[OpenWeatherMap API]
-
-F --> G[Weather Threshold Evaluation]
-
-G --> H{Rain ≥ 10 mm<br/>OR<br/>Wind > 20 km/h}
-
-H -- Yes --> I[Amazon SNS]
-
-I --> J[Email Notification]
+H -- Yes --> I["Amazon SNS"]
+I --> J["Email Notification"]
 ```
 
 ---
